@@ -1,20 +1,20 @@
-CREATE TABLE users
-(
-  id VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  dob DATE,
-  startdate DATE NOT NULL,
-  height DECIMAL,
-  startweight INT NOT NULL,
-  goalweight INT NOT NULL,
-  gender CHAR(1),
-  hash VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE
-  KEY email
-  (email)
-);
+-- CREATE TABLE users
+-- (
+--   id VARCHAR(255) NOT NULL,
+--   username VARCHAR(255) NOT NULL,
+--   email VARCHAR(255) NOT NULL,
+--   dob DATE,
+--   startdate DATE NOT NULL,
+--   height DECIMAL,
+--   startweight INT NOT NULL,
+--   goalweight INT NOT NULL,
+--   gender CHAR(1),
+--   hash VARCHAR(255) NOT NULL,
+--   PRIMARY KEY (id),
+--   UNIQUE
+--   KEY email
+--   (email)
+-- );
 
 --   CREATE TABLE vaults
 --   (

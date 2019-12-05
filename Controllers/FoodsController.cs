@@ -19,7 +19,7 @@ namespace MetaDiet.Controllers
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Models.Food>> Get()
+    public ActionResult<IEnumerable<Food>> Get()
     {
       try
       {
@@ -31,12 +31,12 @@ namespace MetaDiet.Controllers
       }
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<Food> Get(int id)
+    [HttpGet("{name}")]
+    public ActionResult<Food> Get(string name)
     {
       try
       {
-        return Ok(_fs.Get(id));
+        return Ok(_fs.Get(name));
       }
       catch (Exception e)
       {
@@ -44,14 +44,13 @@ namespace MetaDiet.Controllers
       }
     }
 
-    [Authorize]
-    [HttpGet("user")]
-    public ActionResult<IEnumerable<Food>> GetByUser()
+    [HttpGet("{category}")]
+    public ActionResult<IEnumerable<Food>> GetByCategory(string category)
     {
       try
       {
-        string userId = HttpContext.User.FindFirstValue("Id");
-        return Ok(_fs.GetByUser(userId));
+        // string userId = HttpContext.User.FindFirstValue("Id");
+        return Ok(_fs.GetByCategory(category));
       }
       catch (Exception e)
       {
@@ -65,7 +64,6 @@ namespace MetaDiet.Controllers
     {
       try
       {
-        newFood.UserId = HttpContext.User.FindFirstValue("Id");
         return Ok(_fs.Create(newFood));
       }
       catch (Exception e)
@@ -74,20 +72,6 @@ namespace MetaDiet.Controllers
       }
     }
 
-    [HttpPut("{id}/view")]
-
-    public ActionResult<Food> EditViewCount([FromBody] Food editFood, int id)
-    {
-      try
-      {
-        editFood.Id = id;
-        return Ok(_fs.EditViewCount(editFood));
-      }
-      catch (Exception e)
-      {
-        return BadRequest(e.Message);
-      }
-    }
 
     [Authorize]
     [HttpPut("{id}")]
@@ -96,7 +80,7 @@ namespace MetaDiet.Controllers
     {
       try
       {
-        //   id = editFood.Id;
+        id = editFood.Id;
         return Ok(_fs.Edit(editFood));
       }
       catch (Exception e)

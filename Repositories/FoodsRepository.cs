@@ -19,6 +19,12 @@ namespace MetaDiet.Repositories
       return _db.Query<Food>(sql);
     }
 
+    public Food Get(int id)
+    {
+      string sql = "SELECT * FROM keeps WHERE id = @id";
+      return _db.QueryFirstOrDefault<Food>(sql, new { id });
+    }
+
     public Food Get(string name)
     {
       string sql = "SELECT * FROM foods WHERE name = @name";

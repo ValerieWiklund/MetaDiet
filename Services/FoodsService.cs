@@ -17,6 +17,14 @@ namespace MetaDiet.Services
       return _repo.Get();
     }
 
+    public Food Get(int id)
+    {
+      Food exists = _repo.Get(id);
+      if (exists == null) { throw new Exception("Invalid Id"); }
+      return exists;
+    }
+
+
     public Food Get(string name)
     {
       Food exists = _repo.Get(name);

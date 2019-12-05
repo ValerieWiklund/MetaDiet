@@ -31,6 +31,19 @@ namespace MetaDiet.Controllers
       }
     }
 
+    [HttpGet("{id}")]
+    public ActionResult<Food> Get(int id)
+    {
+      try
+      {
+        return Ok(_fs.Get(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
     [HttpGet("{name}")]
     public ActionResult<Food> Get(string name)
     {

@@ -71,7 +71,7 @@ namespace MetaDiet.Controllers
       }
     }
 
-    [Authorize]
+    // [Authorize]
     [HttpPost]
     public ActionResult<Food> Create([FromBody] Food newFood)
     {
@@ -86,7 +86,7 @@ namespace MetaDiet.Controllers
     }
 
 
-    [Authorize]
+    // [Authorize]
     [HttpPut("{id}")]
 
     public ActionResult<Food> Edit([FromBody] Food editFood, int id)
@@ -102,7 +102,7 @@ namespace MetaDiet.Controllers
       }
     }
 
-    [Authorize]
+    // [Authorize]
     [HttpDelete("{id}")]
 
     public ActionResult<Food> Delete(int id)

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Metadiet.Repositories;
 using Metadiet.Services;
+using MetaDiet.Repositories;
+using MetaDiet.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,6 +64,9 @@ namespace Metadiet
       //NOTE REGISTER SERVICES
       services.AddTransient<AccountService>();
       services.AddTransient<AccountRepository>();
+      services.AddTransient<FoodsService>();
+      services.AddTransient<FoodsRepository>();
+
     }
 
     private IDbConnection CreateDbConnection()

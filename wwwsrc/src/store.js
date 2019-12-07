@@ -19,8 +19,6 @@ export default new Vuex.Store({
     user: {},
     keeps: [],
     activeKeep: {},
-    vaults: [],
-    activeVault: {}
   },
   mutations: {
     setUser(state, user) {
@@ -38,13 +36,7 @@ export default new Vuex.Store({
       state.activeKeep = data
     },
 
-    setVaults(state, data) {
-      state.vaults = data
-    },
 
-    setActiveVault(state, data) {
-      state.activeVault = data
-    }
 
   },
   actions: {
@@ -139,60 +131,7 @@ export default new Vuex.Store({
 
     //#endregion
 
-    //#region -- VAULTS --
-    async getVaults({ commit, dispatch }) {
-      try {
-        let res = await api.get('vaults')
-        commit('setVaults', res.data)
-      } catch (error) {
-        console.error(error)
-      }
-    },
-    async addVault({ dispatch }, data) {
-      try {
-        let res = await api.post('vaults', data)
-        dispatch('getVaults')
-      } catch (error) {
-        console.error(error)
-      }
-    },
 
-    async deleteVault({ dispatch }, data) {
-      try {
-        let res = await api.delete(`vaults/${data.id}`)
-        dispatch('getVaults')
-      } catch (error) {
-        console.error(error)
-      }
-    },
-    //#endregion
-
-    //#region  --VAULTKEEPS --
-    async getKeepsByVault({ commit }, data) {
-      try {
-        let res = await api.get(`vaultkeeps/${data}`)
-        commit('setKeeps', res.data)
-      } catch (error) {
-        console.error(error)
-      }
-    },
-
-    async createVaultKeep({ dispatch }, data) {
-      try {
-        let res = await api.post('vaultkeeps', data)
-      } catch (error) {
-        console.error(error)
-      }
-    },
-
-    async removeVaultKeep({ dispatch }, data) {
-      try {
-        let res = await api.put('vaultkeeps', data)
-        dispatch('getKeepsByVault', data.vaultId)
-      } catch (error) {
-        console.error(error)
-      }
-    }
     ////#endregion
   }
 })

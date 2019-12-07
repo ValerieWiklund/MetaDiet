@@ -73,56 +73,56 @@ export default new Vuex.Store({
     //#endregion
 
     //#region -- KEEPS --
-    async getKeeps({ commit, dispatch }) {
+    async getFoods({ commit, dispatch }) {
       try {
-        let res = await api.get('keeps')
-        commit('setKeeps', res.data)
+        let res = await api.get('foods')
+        commit('setFoods', res.data)
       } catch (error) {
         console.error(error)
       }
     },
 
-    async getKeepById({ commit }, data) {
+    async getFoodById({ commit }, data) {
       try {
-        let res = await api.get(`keeps/${data}`)
-        commit('setActiveKeep', res.data)
+        let res = await api.get(`foods/${data}`)
+        commit('setActiveFood', res.data)
       } catch (error) {
         console.error(error)
 
       }
     },
-    async getKeepsByUser({ commit, dispatch }) {
+    async getFoodsByCategory({ commit, dispatch }) {
       try {
-        let res = await api.get('keeps/user')
-        commit('setKeeps', res.data)
+        let res = await api.get('keeps/category')
+        commit('setFoods', res.data)
       } catch (error) {
         console.error(error)
       }
     },
 
 
-    async addKeep({ dispatch }, data) {
+    async addFood({ dispatch }, data) {
       try {
-        let res = await api.post('keeps', data)
-        dispatch('getKeepsByUser')
+        let res = await api.post('foods', data)
+        // dispatch('getKeepsByUser')
       } catch (error) {
         console.error(error)
       }
     },
 
-    async editKeep({ dispatch }, data) {
+    async editFood({ dispatch }, data) {
       try {
-        let res = await api.put(`keeps/${data.id}/view`, data)
-        dispatch("getKeepById", data.id)
+        let res = await api.put(`foods/${data.id}/view`, data)
+        dispatch("getFoodById", data.id)
       } catch (error) {
         console.error(error)
       }
     },
 
-    async deleteKeep({ dispatch }, data) {
+    async deleteFood({ dispatch }, data) {
       try {
-        let res = await api.delete(`keeps/${data}`)
-        dispatch('getKeepsByUser')
+        let res = await api.delete(`foods/${data}`)
+        // dispatch('getKeepsByUser')
       } catch (error) {
         console.error(error)
       }

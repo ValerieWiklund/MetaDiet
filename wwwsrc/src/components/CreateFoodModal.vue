@@ -1,15 +1,15 @@
 <template>
-  <div id="create-keep-modal" class="modal" tabindex="-1" role="dialog">
+  <div id="create-food-modal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add a keep</h5>
+          <h5 class="modal-title">Add a food</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form @submit.prevent="addKeep()">
+          <form @submit.prevent="addFood()">
             <div class="form-group">
               <label for="name">Name</label>
               <input
@@ -17,7 +17,7 @@
                 class="form-control"
                 id="name"
                 placeholder="Enter name"
-                v-model="newKeep.name"
+                v-model="newFood.name"
                 required
               />
             </div>
@@ -28,27 +28,47 @@
                 class="form-control"
                 id="description"
                 placeholder="Enter description"
-                v-model="newKeep.description"
+                v-model="newFood.description"
                 required
               />
               <div class="form-group">
-                <label for="img">Img Url</label>
+                <label for="category">Category</label>
                 <input
                   type="text"
                   class="form-control"
                   id="img"
-                  placeholder="Enter img url"
-                  v-model="newKeep.img"
+                  placeholder="Enter category"
+                  v-model="newFood.category"
                 />
               </div>
               <div class="form-check">
-                <label for="isPrivate">Make Private?</label>
+                <label for="phase1">Phase 1 Food?</label>
                 <input
                   type="checkbox"
                   class="form-check-input ml-2"
-                  id="isPrivate"
-                  placeholder="Enter private or public"
-                  v-model="newKeep.isPrivate"
+                  id="phase1"
+                  placeholder="Phase 1 Food"
+                  v-model="newFood.phase1"
+                />
+              </div>
+              <div class="form-check">
+                <label for="phase2">Phase 2 Food?</label>
+                <input
+                  type="checkbox"
+                  class="form-check-input ml-2"
+                  id="phase2"
+                  placeholder="Phase 2 Food"
+                  v-model="newFood.phase2"
+                />
+              </div>
+              <div class="form-check">
+                <label for="phase3">Phase 3 Food?</label>
+                <input
+                  type="checkbox"
+                  class="form-check-input ml-2"
+                  id="phase3"
+                  placeholder="Phase 3 Food"
+                  v-model="newFood.phase3"
                 />
               </div>
             </div>
@@ -66,10 +86,10 @@
 
 <script>
 export default {
-  name: "create-keep-modal",
+  name: "create-food-modal",
   data() {
     return {
-      newKeep: {}
+      newFood: {}
     };
   },
   computed: {
@@ -78,9 +98,9 @@ export default {
     // }
   },
   methods: {
-    addKeep() {
-      this.$store.dispatch("addKeep", this.newKeep);
-      this.newKeep = {};
+    addFood() {
+      this.$store.dispatch("addFood", this.newFood);
+      this.newFood = {};
       $(".close").click();
     }
   },

@@ -17,8 +17,8 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     user: {},
-    keeps: [],
-    activeKeep: {},
+    foods: [],
+    activeFood: {},
   },
   mutations: {
     setUser(state, user) {
@@ -28,12 +28,12 @@ export default new Vuex.Store({
       //clear the entire state object of user data
       state.user = {}
     },
-    setKeeps(state, data) {
-      state.keeps = data
+    setFoods(state, data) {
+      state.foods = data
     },
 
-    setActiveKeep(state, data) {
-      state.activeKeep = data
+    setActiveFood(state, data) {
+      state.activeFood = data
     },
 
 

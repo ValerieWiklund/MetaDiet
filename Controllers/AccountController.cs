@@ -91,8 +91,9 @@ namespace Metadiet.Controllers
     {
       try
       {
-        id = HttpContext.User.FindFirstValue("Id");
-        var user = _as.GetUserById(id);
+        // id = HttpContext.User.FindFirstValue("Id");
+        // var user = _as.GetUserById(id);
+        editUser.Id = id;
         return Ok(_as.Edit(editUser));
       }
       catch (Exception e)

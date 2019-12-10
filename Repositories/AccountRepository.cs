@@ -9,6 +9,11 @@ namespace Metadiet.Repositories
 
     IDbConnection _db;
 
+    public AccountRepository(IDbConnection db)
+    {
+      _db = db;
+    }
+
     //REGISTER
     public void Register(User user)
     {
@@ -34,10 +39,22 @@ namespace Metadiet.Repositories
       return _db.QueryFirstOrDefault<User>(sql, new { id });
     }
 
-    public AccountRepository(IDbConnection db)
+    public void Edit(User user)
     {
-      _db = db;
+      string sql = @"
+                UPDATE users
+                SET
+                    dob = @DOB,
+                    height = @Height,
+                    startweight = @StartWeight,
+                    goalweight = @GoalWeight,
+                    gender = @Gender,
+                    startdate = @StartDate
+                WHERE id = @Id";
+      _db.Execute(sql, user);
     }
+
+
 
   }
 }

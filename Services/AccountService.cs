@@ -51,10 +51,10 @@ namespace Metadiet.Services
       user.Username = editUser.Username;
       user.DOB = editUser.DOB;
       user.Height = editUser.Height;
-      user.gender = editUser.gender;
-      user.StartWeight = editUser.startweight;
-      user.DOB = editUser.DOB;
-      user.DOB = editUser.DOB;
+      user.Gender = editUser.Gender;
+      user.StartWeight = editUser.StartWeight;
+      user.GoalWeight = editUser.GoalWeight;
+      user.StartDate = editUser.StartDate;
       _repo.Edit(user);
       return user;
     }

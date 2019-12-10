@@ -40,13 +40,13 @@ namespace Metadiet.Models
     public string Hash { get; set; }
     public int Height { get; set; }
     [Required]
-    public DateTime Startdate { get; set; }
-    public DateTime dob { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime DOB { get; set; }
     [Required]
-    public int startweight { get; set; }
+    public int StartWeight { get; set; }
     [Required]
-    public int goalweight { get; set; }
-    public string gender { get; set; }
+    public int GoalWeight { get; set; }
+    public string Gender { get; set; }
     internal ClaimsPrincipal _principal { get; private set; }
 
     internal void SetClaims()

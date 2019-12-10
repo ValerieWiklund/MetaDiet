@@ -43,5 +43,21 @@ namespace Metadiet.Services
     {
       _repo = repo;
     }
+
+    public User Edit(User editUser)
+    {
+      User user = _repo.GetUserById(editUser.Id);
+      if (user == null) { throw new Exception("Invalid Id"); }
+      user.Username = editUser.Username;
+      user.DOB = editUser.DOB;
+      user.Height = editUser.Height;
+      user.gender = editUser.gender;
+      user.StartWeight = editUser.startweight;
+      user.DOB = editUser.DOB;
+      user.DOB = editUser.DOB;
+      _repo.Edit(user);
+      return user;
+    }
+
   }
 }

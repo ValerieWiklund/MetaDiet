@@ -16,9 +16,9 @@ namespace Metadiet.Repositories
       //HASH THE PASSWORD
       string sql = @"
                 INSERT INTO users 
-                (id, username, email, hash)
+                (id, username, email, hash, dob, height, startweight, goalweight, gender, startdate)
                 VALUES 
-                (@id, @username, @email, @Hash)";
+                (@id, @username, @email, @Hash, @DOB, @Height, @StartWeight, @GoalWeight, @Gender, @StartDate)";
       _db.Execute(sql, user);
     }
 

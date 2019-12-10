@@ -84,5 +84,23 @@ namespace Metadiet.Controllers
         return Unauthorized(e.Message);
       }
     }
+
+    [Authorize]
+    [HttpPut("{id}")]
+    public ActionResult<User> Edit([FromBody] User editUser, string id)
+    {
+      try
+      {
+        id = HttpContext.User.FindFirstValue("Id");
+        var user = _as.GetUserById(id);
+        return Ok(_as.Edit(editUser));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+
   }
 }

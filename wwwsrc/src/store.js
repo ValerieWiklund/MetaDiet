@@ -70,8 +70,13 @@ export default new Vuex.Store({
       }
     },
 
-    async editProfile({ dispatch } data) {
-
+    async editProfile({ dispatch }, data) {
+      try {
+        let res = await api.put(`account/${data.userid}`, data)
+        dispatch("getFoodById", data.id)
+      } catch (error) {
+        console.error(error)
+      }
     },
 
     //#endregion

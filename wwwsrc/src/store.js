@@ -70,6 +70,10 @@ export default new Vuex.Store({
       }
     },
 
+    async editProfile({ dispatch } data) {
+
+    },
+
     //#endregion
 
     //#region -- KEEPS --

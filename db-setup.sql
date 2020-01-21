@@ -3,12 +3,6 @@
 --   id VARCHAR(255) NOT NULL,
 --   username VARCHAR(255) NOT NULL,
 --   email VARCHAR(255) NOT NULL,
---   dob DATE,
---   startdate DATE,
---   height DECIMAL,
---   startweight INT,
---   goalweight INT,
---   gender CHAR(1),
 --   hash VARCHAR(255) NOT NULL,
 --   PRIMARY KEY (id),
 --   UNIQUE
@@ -16,26 +10,30 @@
 --   (email)
 -- );
 
---   CREATE TABLE vaults
---   (
---     id int NOT NULL
---     AUTO_INCREMENT,
---     name VARCHAR
---     (255) NOT NULL,
---     description VARCHAR
---     (255) NOT NULL,
---     userId VARCHAR
---     (255),
---     INDEX userId
---     (userId),
---     FOREIGN KEY
---     (userId)
---         REFERENCES users
---     (id)
---         ON
---     DELETE CASCADE,  
---     PRIMARY KEY (id)
---     );
+  -- CREATE TABLE profiles
+  -- (
+  --   id int NOT NULL
+  --   AUTO_INCREMENT,
+  -- dob DATE,
+  -- startdate DATE,
+  -- height DECIMAL,
+  -- startweight INT,
+  -- goalweight INT,
+  -- gender CHAR
+  --   (1), 
+  -- userId VARCHAR
+  --   (255),
+  -- INDEX
+  --   (userId),
+  -- FOREIGN KEY
+  --   (userId)
+  --       REFERENCES users
+  --   (id)
+  --       ON
+  --   DELETE CASCADE,  
+  --   PRIMARY KEY (id)
+  --   );
+
 
 -- CREATE TABLE foods
 -- (
@@ -59,43 +57,6 @@
 --   (id)
 --   );
 
---       CREATE TABLE vaultkeeps
---       (
---         id int NOT NULL
---         AUTO_INCREMENT,
---     vaultId int NOT NULL,
---     keepId int NOT NULL,
---     userId VARCHAR
---         (255) NOT NULL,
-
---     PRIMARY KEY
---         (id),
---     INDEX
---         (vaultId, keepId),
---     INDEX
---         (userId),
-
---     FOREIGN KEY
---         (userId)
---         REFERENCES users
---         (id)
---         ON
---         DELETE CASCADE,
-
---     FOREIGN KEY (vaultId)
---         REFERENCES vaults
---         (id)
---         ON
---         DELETE CASCADE,
-
---     FOREIGN KEY (keepId)
---         REFERENCES keeps
---         (id)
---         ON
---         DELETE CASCADE
--- )
-
-
 -- -- USE THIS LINE FOR GET KEEPS BY VAULTID
 -- SELECT * FROM vaultkeeps vk
 -- INNER JOIN keeps k ON k.id = vk.keepId 
@@ -108,4 +69,3 @@
 -- DROP TABLE IF EXISTS vaults;
 -- DROP TABLE IF EXISTS keeps;
 -- DROP TABLE IF EXISTS users;
--- 

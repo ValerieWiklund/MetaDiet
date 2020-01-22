@@ -1,3 +1,5 @@
+using System;
+
 namespace MetaDiet.Interfaces
 {
   public interface IProfile

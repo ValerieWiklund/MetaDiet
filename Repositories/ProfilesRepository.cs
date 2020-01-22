@@ -39,7 +39,7 @@ namespace MetaDiet.Repositories
         dob = @DOB,
         startdate - @StarteDate,
         height = @Height,
-        startWeight = @StartWeight,
+        startweight = @StartWeight,
         goalweight = @GoalWeight, 
         gender = @Gender
         WHERE id = @Id";

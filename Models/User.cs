@@ -38,15 +38,7 @@ namespace Metadiet.Models
     [EmailAddress]
     public string Email { get; set; }
     public string Hash { get; set; }
-    public int Height { get; set; }
-    [Required]
-    public DateTime StartDate { get; set; }
-    public DateTime DOB { get; set; }
-    [Required]
-    public int StartWeight { get; set; }
-    [Required]
-    public int GoalWeight { get; set; }
-    public string Gender { get; set; }
+
     internal ClaimsPrincipal _principal { get; private set; }
 
     internal void SetClaims()

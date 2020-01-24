@@ -37,7 +37,7 @@ namespace MetaDiet.Repositories
         UPDATE profiles
         SET 
         dob = @DOB,
-        startdate - @StarteDate,
+        startdate - @StartDate,
         height = @Height,
         startweight = @StartWeight,
         goalweight = @GoalWeight, 

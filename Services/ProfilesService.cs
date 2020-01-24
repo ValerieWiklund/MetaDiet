@@ -18,6 +18,13 @@ namespace MetaDiet.Services
       return _repo.Get(userId);
     }
 
+    public Profile Get(int id)
+    {
+      Profile exists = _repo.Get(id);
+      if (exists == null) { throw new Exception("Invalid Id"); }
+      return exists;
+    }
+
     public Profile Create(Profile newProfile)
     {
       int id = _repo.Create(newProfile);

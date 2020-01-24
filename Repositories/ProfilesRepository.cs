@@ -20,6 +20,12 @@ namespace MetaDiet.Repositories
       return _db.Query<Profile>(sql, new { userId });
     }
 
+    public Profile Get(int id)
+    {
+      string sql = "SELECT * FROM profiles WHERE id = @id";
+      return _db.QueryFirstOrDefault<Profile>(sql, new { id });
+    }
+
     public int Create(Profile newProfile)
     {
       string sql = @"

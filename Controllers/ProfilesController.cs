@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using MetaDiet.Models;
 using MetaDiet.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -62,6 +63,34 @@ namespace MetaDiet.Controllers
       }
     }
 
+    [Authorize]
+    [HttpPut("{id}")]
+
+    public ActionResult<Profile> Edit([FromBody] Profile editProfile, int id)
+    {
+      try
+      {
+        return Ok(_ps.Edit(editProfile));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+    [Authorize]
+    [HttpDelete("{id}")]
+    public ActionResult<Profile> Delete(int id)
+    {
+      try
+      {
+        return Ok(_ps.Delete(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 
 }

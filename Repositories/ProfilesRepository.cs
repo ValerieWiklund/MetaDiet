@@ -14,10 +14,10 @@ namespace MetaDiet.Repositories
       _db = db;
     }
 
-    public IEnumerable<Profile> Get(string userId)
+    public Profile Get(string userId)
     {
       string sql = "SELECT * FROM profiles WHERE userId = @userId";
-      return _db.Query<Profile>(sql, new { userId });
+      return _db.QueryFirstOrDefault<Profile>(sql, new { userId });
     }
 
     public Profile Get(int id)

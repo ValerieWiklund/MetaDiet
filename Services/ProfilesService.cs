@@ -13,7 +13,7 @@ namespace MetaDiet.Services
       _repo = repo;
     }
 
-    public IEnumerable<Profile> Get(string userId)
+    public Profile Get(string userId)
     {
       return _repo.Get(userId);
     }

@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import Axios from "axios";
+import AuthService from "./AuthService";
+import router from "./router";
 
 Vue.use(Vuex);
 
@@ -69,7 +71,19 @@ export default new Vuex.Store({
       } catch (e) {
         console.warn(e.message);
       }
-    }
+    },
+    //#endregion
+
+    //#region -- PROFILE --
+    async getProfileByUser({ commit }) {
+      try {
+        let res = await api.get("profile/userId");
+        commit("setProfile", res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async addProfile() {}
 
     //#endregion
   }

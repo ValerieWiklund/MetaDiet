@@ -83,7 +83,14 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    async addProfile() {}
+    async addProfile({ dispatch }, data) {
+      try {
+        let res = await api.post("profiles", data);
+        dispatch("getProfileByUser");
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
     //#endregion
   }

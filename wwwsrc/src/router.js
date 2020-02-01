@@ -1,5 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
+// @ts-ignore
+import Login from "./views/Login.vue";
+// @ts-ignore
+import Home from "./views/Home.vue";
+// @ts-ignore
+import Profile from "./views/Profile.vue";
 
 // @ts-ignore
 Vue.use(Router);
@@ -16,7 +22,6 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      // @ts-ignore
       component: Login
     },
     {

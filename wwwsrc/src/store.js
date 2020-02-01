@@ -77,7 +77,15 @@ export default new Vuex.Store({
     //#region -- PROFILE --
     async getProfileByUser({ commit }) {
       try {
-        let res = await api.get("profile/userId");
+        let res = await api.get("profile/user");
+        commit("setProfile", res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getProfileById({ commit }, data) {
+      try {
+        let res = await api.get(`profiles/${data}`);
         commit("setProfile", res.data);
       } catch (error) {
         console.error(error);
@@ -87,6 +95,21 @@ export default new Vuex.Store({
       try {
         let res = await api.post("profiles", data);
         dispatch("getProfileByUser");
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async editProfile({ dispatch }, data) {
+      try {
+        let res = await api.put(`profiles/${data.id}`, data);
+        dispatch("getProfileById", data.id);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async deleteProfile({ dispatch }, data) {
+      try {
+        let res = await api.delete(`profiles/${data.id}`, data);
       } catch (error) {
         console.error(error);
       }

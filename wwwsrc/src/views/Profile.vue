@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="profile"></div>
+    <div class="profile">
+      <h3 class="text-black">WELCOME!</h3>
+      <h1>{{user.username}}</h1>
+    </div>
   </div>
 </template>
 
@@ -11,9 +14,9 @@ export default {
   //   this.$store.dispatch("getKeeps");
   // },
   computed: {
-    // keeps() {
-    //   return this.$store.state.keeps;
-    // }
+    user() {
+      return this.$store.state.user;
+    }
   },
   methods: {}
   // components: { Keep }

@@ -45,6 +45,7 @@ export default new Vuex.Store({
     //#region -- AUTHORIZATION/USER  --
     async register({ commit, dispatch }, creds) {
       try {
+        debugger;
         let user = await AuthService.Register(creds);
         commit("setUser", user);
         router.push({ name: "home" });

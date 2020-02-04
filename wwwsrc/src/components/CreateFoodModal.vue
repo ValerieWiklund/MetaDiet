@@ -79,13 +79,15 @@
                 class="form-control"
                 id="servingnum"
                 placeholder="Enter Serving size number"
-                v-model="newFood.servingnum"
+                v-model="newFood.servingNum"
                 required
               />
               </div>
-              
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="form-group">
+                <label for="sizedescription">Serving Size Description</label>
+                <input type="text" class="form-control" id="sizedescription" placeholder="Enter Serving Size Description" v-model="newFood.sizeDescription" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
         <div class="modal-footer">

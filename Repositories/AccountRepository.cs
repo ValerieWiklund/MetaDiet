@@ -21,9 +21,9 @@ namespace Metadiet.Repositories
       //HASH THE PASSWORD
       string sql = @"
                 INSERT INTO users 
-                (id, username, email, hash, dob, height, startweight, goalweight, gender, startdate)
+                (id, username, email, hash)
                 VALUES 
-                (@id, @username, @email, @Hash, @DOB, @Height, @StartWeight, @GoalWeight, @Gender, @StartDate)";
+                (@id, @username, @email, @Hash)";
       _db.Execute(sql, user);
     }
 
@@ -38,23 +38,5 @@ namespace Metadiet.Repositories
       string sql = "SELECT * FROM users WHERE id = @id";
       return _db.QueryFirstOrDefault<User>(sql, new { id });
     }
-
-    public void Edit(User user)
-    {
-      string sql = @"
-                UPDATE users
-                SET
-                    dob = @DOB,
-                    height = @Height,
-                    startweight = @StartWeight,
-                    goalweight = @GoalWeight,
-                    gender = @Gender,
-                    startdate = @StartDate
-                WHERE id = @Id";
-      _db.Execute(sql, user);
-    }
-
-
-
   }
 }

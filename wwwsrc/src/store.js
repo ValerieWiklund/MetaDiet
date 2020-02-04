@@ -25,6 +25,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setUser(state, user) {
+      debugger;
       state.user = user;
     },
     resetState(state) {
